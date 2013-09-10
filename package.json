@@ -1,0 +1,30 @@
+{
+  "name": "vinquery-api",
+  "description": "A better vinquery.com API",
+  "version": "0.0.1",
+  "author": {
+    "name": "Maxime Poulin",
+    "email": "mpoulin@roux.ca"
+  },
+  "contributors": [ 
+    {
+
+    },
+    {
+      "name": "Maxime Poulin",
+      "email": "mpoulin@roux.ca",
+	  "web": "http://roux.ca"
+    }	
+  ],
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "express": "latest",
+    "xml2js": "latest"
+  },
+  "keywords": [
+    "mvc",
+    "boilerplate"
+  ]
+}

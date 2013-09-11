@@ -33,7 +33,7 @@ exports.check = (function(req, res) {
 
           httpResonse.on('end', function() {
               
-       Enter a VIN         parser.parseString(body.replace(/^\uFEFF/, ''), function (err, result) { // Work around to remode the UTF-8 BOM
+                parser.parseString(body.replace(/^\uFEFF/, ''), function (err, result) { // Work around to remode the UTF-8 BOM
                 
                 if(result) {
                   if(result.VINquery.VIN[0].$.Status == 'FAILED') {

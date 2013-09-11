@@ -24,7 +24,9 @@
     "xml2js": "latest"
   },
   "keywords": [
-    "mvc",
-    "boilerplate"
+    "api",
+    "vin"
+    "vinquery"
+    "vinquery.com"
   ]
 }

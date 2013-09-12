@@ -8,12 +8,9 @@
   },
   "contributors": [ 
     {
-
-    },
-    {
       "name": "Maxime Poulin",
       "email": "mpoulin@roux.ca",
-	  "web": "http://roux.ca"
+	    "web": "http://roux.ca"
     }	
   ],
   "engines": {
@@ -25,8 +22,8 @@
   },
   "keywords": [
     "api",
-    "vin"
-    "vinquery"
+    "vin",
+    "vinquery",
     "vinquery.com"
   ]
 }

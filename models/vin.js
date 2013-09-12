@@ -12,23 +12,7 @@ var vinSchema = new Schema({
   trim_level: String, 
   manufactured_in: String, 
   body_style: String, 
-  engine_type: String, 
-  transmission_long: String, 
-  transmission_short: String, 
-  driveline: String, 
-  tank: String, 
-  tank_unit: String,
-  fuel_economy_city: String,
-  fuel_economy_highway: String, 
-  fuel_economy_unit: String, 
-  anti_brake_system: String, 
-  steering_type: String,
-  standard_seating: String,
-  optional_seating: String,
-  length: String,
-  width: String,
-  height: String,
-  dimension_unit: String 
+  engine_type: String
 });
  
 module.exports = mongoose.model('Vin', vinSchema);

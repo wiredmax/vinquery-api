@@ -10,7 +10,7 @@ var Vin = require('../models/vin.js');
  
 // first locates a thread by title, then locates the replies by thread ID.
 exports.check = (function(req, res) {
-  var vin = Vin.findOne({vin: req.params.vin}, function(error, vinData) {
+  var vin = Vin.findOne({vin: '' + req.params.vin.substring(0, 10) + 'xxxxxx'}, function(error, vinData) {
     if(vinData) {
       res.send(vinData);
     }
@@ -40,7 +40,7 @@ exports.check = (function(req, res) {
                   }
                   else {
                     var vin = new Vin({ 
-                      vin: result.VINquery.VIN[0].$.Number, 
+                      vin: '' + result.VINquery.VIN[0].$.Number.substring(0, 10)+ 'xxxxxx', 
                       year: result.VINquery.VIN[0].Vehicle[0].Item[0].$.Value, 
                       make: result.VINquery.VIN[0].Vehicle[0].Item[1].$.Value, 
                       model: result.VINquery.VIN[0].Vehicle[0].Item[2].$.Value, 

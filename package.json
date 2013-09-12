@@ -19,6 +19,7 @@
   "dependencies": {
     "express": "latest",
     "xml2js": "latest"
+    "mongoose": "latest"
   },
   "keywords": [
     "api",

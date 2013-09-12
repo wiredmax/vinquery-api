@@ -20,7 +20,6 @@ exports.check = (function(req, res) {
       var access_code = 'YOUR_VIN_QUERY_ACCESS_CODE';
       var report_type = '0';
       
-      //var url = 'http://www.vinquery.com/samples/ws_bas.xml';
       var url = 'http://ws.vinquery.com/restxml.aspx?accessCode=' + access_code + '&vin='+ req.params.vin +'&reportType='+ report_type +'';
 
 

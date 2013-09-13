@@ -5,14 +5,14 @@ var mongoose = require('mongoose');
 var app = express();
  
 // connect to Mongo when the app initializes
-mongoose.connect('mongodb://localhost/test_vin');
+mongoose.connect('mongodb://localhost/vinquery_cache');
  
 app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
 });
- 
+
 // set up the RESTful API, handler methods are defined in api.js
 var api = require('./controllers/api.js');
 app.get('/vin/:vin', api.check);

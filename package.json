@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "express": "latest",
-    "xml2js": "latest"
+    "xml2js": "latest",
     "mongoose": "latest"
   },
   "keywords": [

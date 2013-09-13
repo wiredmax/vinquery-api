@@ -12,6 +12,7 @@ var Vin = require('../models/vin.js');
 // first locates a thread by title, then locates the replies by thread ID.
 exports.check = (function(req, res) {
   var access = false;
+  var origin_ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   
   function returnJSON(req, res, json) {
     var url_parts = url_tools.parse(req.url, true);
@@ -26,6 +27,9 @@ exports.check = (function(req, res) {
     var referer = url_tools.parse(req.headers['referer'], true);
     if(referer.hostname == 'localhost') access = true;
   }
+  if(origin_ip == 'ENTER_AUTHORISED_ORIGIN_IP') access = true;
+  
+
   
   if(access) {
     var vin = Vin.findOne({vin: '' + req.params.vin.substring(0, 10) + 'xxxxxx'}, function(error, vinData) {

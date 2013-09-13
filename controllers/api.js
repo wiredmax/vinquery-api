@@ -5,14 +5,18 @@
  
 var http = require('http');
 var xml2js = require('xml2js');
+var url_tools = require('url');
  
 var Vin = require('../models/vin.js');
  
 // first locates a thread by title, then locates the replies by thread ID.
 exports.check = (function(req, res) {
+  
   var vin = Vin.findOne({vin: '' + req.params.vin.substring(0, 10) + 'xxxxxx'}, function(error, vinData) {
     if(vinData) {
-      res.send(vinData);
+      var url_parts = url_tools.parse(req.url, true);
+      if(url_parts.query.jsonp) res.send(url_parts.query.jsonp +'(\n' + JSON.stringify(vinData) + '\n)');
+      else res.send(vinData);
     }
     else {
       var parser = new xml2js.Parser();
@@ -52,7 +56,9 @@ exports.check = (function(req, res) {
                       
                     vin.save(function (err) {
                       if (err) console.log(err)
-                      res.send(vin);
+                      var url_parts = url_tools.parse(req.url, true);
+                      if(url_parts.query.jsonp) res.send(url_parts.query.jsonp +'(\n' + JSON.stringify(vin) + '\n)');
+                      else res.send(vin);
                     });
                   }
                 }

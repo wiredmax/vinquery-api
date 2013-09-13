@@ -14,6 +14,7 @@ exports.check = (function(req, res) {
   
   var vin = Vin.findOne({vin: '' + req.params.vin.substring(0, 10) + 'xxxxxx'}, function(error, vinData) {
     if(vinData) {
+      res.setHeader("Content-Type", "application/javascript");
       var url_parts = url_tools.parse(req.url, true);
       if(url_parts.query.jsonp) res.send(url_parts.query.jsonp +'(\n' + JSON.stringify(vinData) + '\n)');
       else res.send(vinData);
@@ -56,6 +57,7 @@ exports.check = (function(req, res) {
                       
                     vin.save(function (err) {
                       if (err) console.log(err)
+                      res.setHeader("Content-Type", "application/javascript");
                       var url_parts = url_tools.parse(req.url, true);
                       if(url_parts.query.jsonp) res.send(url_parts.query.jsonp +'(\n' + JSON.stringify(vin) + '\n)');
                       else res.send(vin);
